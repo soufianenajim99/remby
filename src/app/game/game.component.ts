@@ -59,7 +59,7 @@ export class GameComponent implements OnInit {
   showSequence() {
     this.isSequenceVisible = true;
     this.timeLeft = this.sequenceDisplayTime;
-    this.areButtonsDisabled = true; // Disable buttons during sequence display
+    this.areButtonsDisabled = true;
 
     this.timerInterval = setInterval(() => {
       this.timeLeft--;
@@ -69,7 +69,7 @@ export class GameComponent implements OnInit {
         this.isSequenceVisible = false;
         this.areButtonsDisabled = false;
       }
-    }, 1000); // Decrease time left every second
+    }, 1000);
   }
 
   resetGame(): void {

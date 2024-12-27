@@ -11,7 +11,7 @@ export class GameService {
   public score = 0;
   public gameOverSubject = new Subject<boolean>();
 
-  public colors = ['red', 'blue', 'green', 'yellow']; // You can add more colors.
+  public colors = ['red', 'blue', 'green', 'yellow'];
 
   constructor() { }
 
