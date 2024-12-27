@@ -8,8 +8,7 @@ import {CommonModule, NgClass} from '@angular/common';
   imports: [
     NgClass,
     CommonModule
-  ],
-  styleUrls: ['./game.component.css']
+  ]
 })
 export class GameComponent implements OnInit {
   public sequence: string[] = [];
