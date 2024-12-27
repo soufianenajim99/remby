@@ -5,7 +5,7 @@
     <p class="text-lg mb-6">Score: <span class="font-semibold">{{ score }}</span></p>
 
     <div class="sequence-display mb-6" *ngIf="isSequenceVisible">
-      <p class="text-sm mb-2">Memorize this sequence ({{ timeLeft }}s left):</p>
+      <p class="text-sm text-red-500 mb-2">Memorize this sequence ({{ timeLeft }}s left):</p>
       <div class="flex gap-2 justify-center">
         <div
           *ngFor="let color of sequence"
@@ -31,6 +31,8 @@
           [class.bg-blue-500]="color === 'blue'"
           [class.bg-green-500]="color === 'green'"
           [class.bg-yellow-500]="color === 'yellow'"
+          [class.cursor-not-allowed]="areButtonsDisabled"
+          [disabled]="areButtonsDisabled"
         >
 
         </button>
@@ -41,6 +43,10 @@
       <button
         (click)="validateUserInput()"
         class="px-4 py-2 bg-blue-600 rounded-md text-white font-semibold hover:bg-blue-700 transition"
+        [class.bg-blue-600]="!areButtonsDisabled"
+      [class.bg-blue-400]="areButtonsDisabled"
+      [class.cursor-not-allowed]="areButtonsDisabled"
+      [disabled]="areButtonsDisabled"
       >
         Validate
       </button>
