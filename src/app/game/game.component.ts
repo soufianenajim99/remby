@@ -14,6 +14,9 @@ export class GameComponent implements OnInit {
   public sequence: string[] = [];
   public userInput: string[] = [];
   public currentLevel: number = 1;
+  sequenceDisplayTime: number = 10;
+  timeLeft: number = this.sequenceDisplayTime;
+  timerInterval: any; // To hold the interval reference
   isSequenceVisible: boolean = true;
   public score: number = 0;
   public isGameOver: boolean = false;
@@ -54,12 +57,20 @@ export class GameComponent implements OnInit {
   }
   showSequence() {
     this.isSequenceVisible = true;
-    setTimeout(() => {
-      this.isSequenceVisible = false;
-    }, 10000);
+    this.timeLeft = this.sequenceDisplayTime;
+
+    this.timerInterval = setInterval(() => {
+      this.timeLeft--;
+
+      if (this.timeLeft <= 0) {
+        clearInterval(this.timerInterval);
+        this.isSequenceVisible = false;
+      }
+    }, 1000); // Decrease time left every second
   }
 
   resetGame(): void {
+    clearInterval(this.timerInterval);
     this.startGame();
   }
 
