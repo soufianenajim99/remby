@@ -5,7 +5,7 @@
     <p class="text-lg mb-6">Score: <span class="font-semibold">{{ score }}</span></p>
 
     <div class="sequence-display mb-6" *ngIf="isSequenceVisible">
-      <p class="text-sm mb-2">Memorize this sequence:</p>
+      <p class="text-sm mb-2">Memorize this sequence ({{ timeLeft }}s left):</p>
       <div class="flex gap-2 justify-center">
         <div
           *ngFor="let color of sequence"
